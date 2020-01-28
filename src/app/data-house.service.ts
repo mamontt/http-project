@@ -8,11 +8,9 @@ import { ResourceLoader } from '@angular/compiler';
 
 @Injectable()
 export class DataHouseService {
-  corsUrl: string = 'https://cors-anywhere.herokuapp.com/';
-  
-  constructor(private httpClient : HttpClient) {  }
-  public getDataHouse(url: string): any {//!!!!any?
-    return this.httpClient.get<ServerData>(this.corsUrl+url)
+  corsUrl = 'https://cors-anywhere.herokuapp.com/';
+  constructor(private httpClient: HttpClient) {  }
+  public getDataHouse(url: string): Observable<ServerData> {
+    return this.httpClient.get<ServerData>(this.corsUrl + url);
   }
-  
 }

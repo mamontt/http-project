@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 
 import {DataHouseService} from './data-house.service';
 import { ServerData } from './classes';
+import { Observable } from 'rxjs';
 // import { Observable } from 'rxjs';
 
 @Component({
@@ -11,10 +12,10 @@ import { ServerData } from './classes';
   providers: [DataHouseService]
 })
 export class AppComponent {
-  constructor(private dataService : DataHouseService ) { }
+  constructor(private dataService: DataHouseService ) { }
 
   private urlToService: string;
-  public dataHouse$: ServerData;
+  public dataHouse$: Observable<ServerData>;
 
   public getUrl(url: string): void {
     this.urlToService = url;

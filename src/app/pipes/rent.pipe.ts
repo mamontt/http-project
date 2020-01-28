@@ -6,9 +6,8 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class RentPipe implements PipeTransform {
 
   transform(value: string, ...args: any[]): string {
-    let result: string = "";
-    if (value[0] == "R") {
-      return result = "(for month)" + value.substring(1,value.length);
+    if (value[0] === 'R') {
+      return ('(for month)' + value.substring(1, value.length));
     }
     return value;
   }

@@ -1,9 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-// , FormGroup, FormControl, Validators 
+// , FormGroup, FormControl, Validators
 // import {Routes, RouterModule} from '@angular/router';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -12,8 +12,8 @@ import { OutputComponent } from './output/output.component';
 import { DataHouseService } from './data-house.service';
 import { HouseComponent } from './house/house.component';
 import { FilterComponent } from './filter/filter.component';
-import { UpperPipe } from './upper.pipe';
-import { RentPipe } from './rent.pipe';
+import { UpperPipe } from './pipes/upper.pipe';
+import { RentPipe } from './pipes/rent.pipe';
 
 
 @NgModule({
@@ -31,8 +31,8 @@ import { RentPipe } from './rent.pipe';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule
-    // FormGroup, 
-    // FormControl, 
+    // FormGroup,
+    // FormControl,
     // Validators
   ],
   providers: [DataHouseService],

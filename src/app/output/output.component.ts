@@ -12,9 +12,6 @@ import { Observable } from 'rxjs';
   styleUrls: ['./output.component.css'],
   providers: []
 })
-export class OutputComponent implements OnInit{
-  constructor( ) { };
-  ngOnInit(){ }
-  
+export class OutputComponent {
   @Input() public dataFromServer$: Observable<ServerData>;
 }

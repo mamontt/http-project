@@ -6,8 +6,8 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class UpperPipe implements PipeTransform {
 
   transform(value: string, ...args: any[]): string {
-    let result = value.substring(0,30) + "...";
-    return result.toUpperCase();;
+    const result = value.substring(0, 30) + '...';
+    return result.toUpperCase();
   }
 
 }

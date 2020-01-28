@@ -10,6 +10,5 @@ import { HouseDescription } from '../classes';
 export class HouseComponent  {
 
   @Input() public houseData: HouseDescription;
-  
 
 }
