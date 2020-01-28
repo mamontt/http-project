@@ -1,0 +1,43 @@
+<form id="inputs" [formGroup]="myForm" novalidate (ngSubmit)="this.sendUrlToApp()">
+    <div class="form-group">
+        <label>Country:</label>
+        <select class="form-control" name="country" formControlName="country" >
+            <option *ngFor="let item of countryList" value="{{item}}">{{ item }}</option>
+        </select>
+    </div>
+    <div>
+        <p></p>
+        <label>Location:</label><br>
+        <input class="form-control" formControlName="location"/>
+    </div>
+    <div 
+        *ngIf="myForm.controls['location'].invalid && myForm.controls['location'].touched ">
+        <p></p>
+        Некорректная локация!
+
+    </div>
+    <div>
+        <p></p>
+        <label>Min price:</label><br>
+        <input class="form-control"  formControlName="minPrice" />
+    </div>
+    <div 
+        *ngIf="myForm.controls['minPrice'].invalid">
+        
+        Некорректная минимальная стоимость!
+        
+    </div>
+    <div>
+        <p></p>
+        <label>Max price:</label><br>
+        <input class="form-control"  formControlName="maxPrice"/>
+    </div>
+    <div *ngIf="myForm.controls['maxPrice'].invalid ">
+        Некорректная максимальная стоимость!
+    </div>
+    <br>
+    <button class="button-submit" (click)="inputParams()" [disabled]="myForm.invalid">Показать дома</button><br><br>
+    <button (click)="deleteParams()">Удалить все параметры</button>
+</form>
+
+

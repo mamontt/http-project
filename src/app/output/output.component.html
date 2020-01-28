@@ -1,0 +1,8 @@
+<!-- <button (click)='getHousesFromResponce()'>2</button> -->
+<div *ngIf="(( dataFromServer$ | async )?.response?.application_response_code)>=200" >
+    <p>nothing founded!!!( {{ (( dataFromServer$ | async )?.response?.application_response_text) }} )</p>
+</div>
+<div *ngFor="let house of (( dataFromServer$ | async )?.response?.listings)">
+    <app-house [houseData]="house"></app-house>
+</div>
+

@@ -1,0 +1,11 @@
+<div class="house">
+    <ul><a href="{{houseData.lister_url}}" style="text-decoration: none;" >
+        <p>{{houseData.title | upper}}</p>
+        <img  height="300" width="400" src="{{houseData.img_url}}">
+        <p>Кол-во комнат: {{houseData.room_number || "none"}}</p>
+        <p>Кол-во ванных: {{houseData.bathroom_number || "none"}}</p>
+        <p>Кол-во спален: {{houseData.bedroom_number || "none"}}</p>
+        <p>{{houseData.summary || "none"}}</p>
+        <p>Стоимость: {{houseData.price_formatted | rent}}</p>
+    </a></ul>
+</div>
