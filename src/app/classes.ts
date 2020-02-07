@@ -22,24 +22,27 @@ export class HouseDescription {
 
 }
 export class Params {
-    private country: string;
+    private country = 'UK';
     private urlToSent = `/api?encoding=json&pretty=1&action=search_listings&listing_type=buy`;
-    private location: string;
-    private minPrice: string;
-    private maxPrice: string;
-    private listingType: string;
-    private bathrooNumber: string;
-    private bedroomNumber: string;
-    private constructionYear: string;
-    constructor() {
-    this.country = 'UK';
-    this.location = '';
-    this.minPrice = '';
-    this.maxPrice =  '';
-    this.listingType = '';
-    this.bathrooNumber = '';
-    this.bedroomNumber = '';
-    this.constructionYear = '';
+    private location = '';
+    private minPrice = '';
+    private maxPrice = '';
+    private listingType = '';
+    private bathrooNumber = '';
+    private bedroomNumber = '';
+    private constructionYear = '';
+
+    constructor(oldParams?: Params) {
+        if(oldParams) {
+            this.country = oldParams.country;
+            this.location = oldParams.location;
+            this.minPrice = oldParams.minPrice;
+            this.maxPrice =  oldParams.maxPrice;
+            this.listingType = oldParams.listingType;
+            this.bathrooNumber = oldParams.bathrooNumber;
+            this.bedroomNumber = oldParams.bedroomNumber;
+            this.constructionYear = oldParams.constructionYear;
+        }
     }
 
     public applyCountry(countryName: string): string {
@@ -54,17 +57,17 @@ export class Params {
 
     public build(): string {
 
-        this.urlToSent = (this.country ? this.country : 'https://api.nestoria.co.uk') + this.urlToSent;
+        let url = (this.country ? this.country : 'https://api.nestoria.co.uk') + this.urlToSent;
         for (const key in this) {
             if (key === 'country' || key === 'urlToSent') {
                 continue;
             }
 
             if (this[key]) {
-                this.urlToSent = this.urlToSent + this[key];
+                url = url + this[key];
             }
         }
-        return this.urlToSent;
+        return url;
     }
     public destroy(): void {
         for (const key in this) {

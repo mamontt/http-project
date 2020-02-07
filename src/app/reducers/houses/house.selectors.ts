@@ -8,9 +8,3 @@ export const selectHouses = createSelector(
     selectHouseFeature,
     (state: HouseState): HouseDescription[] => state.houses
 );
-
-
-export const selectParams = createSelector(
-    selectHouseFeature,
-    (state: HouseState): Params => state.properties
-);

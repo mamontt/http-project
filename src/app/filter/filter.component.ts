@@ -47,6 +47,7 @@ export class FilterComponent implements OnInit {
   }
 
   private inputParams(): void {
+      this.params = new Params(this.params);
       for (const key in this.myForm.value) {
         if (this.myForm.value.hasOwnProperty(key)) {
           if (key === 'country') {

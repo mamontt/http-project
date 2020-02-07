@@ -1,6 +1,5 @@
 import { Action } from '@ngrx/store';
 import { HouseDescription, Params, ServerData } from '../../classes';
-import { Observable } from 'rxjs';
 
 
 export enum houseActionsType {

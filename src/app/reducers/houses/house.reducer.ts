@@ -1,16 +1,14 @@
-import { HouseDescription, Params } from 'src/app/classes';
+import { HouseDescription } from 'src/app/classes';
 import { HouseActions, houseActionsType } from './house.actions';
 
 export const houseNode = 'house';
 
 export interface HouseState {
     houses: HouseDescription[];
-    properties: Params;
     error: string;
 }
 const initialState: HouseState = {
     houses : [],
-    properties: new Params(),
     error: '',
 };
 
@@ -20,7 +18,6 @@ export const houseReducer = (state = initialState, action: HouseActions) => {
         case houseActionsType.sendParams:
             return {
                 ...state,
-                properties: payload
             };
         case houseActionsType.clear:
             return {

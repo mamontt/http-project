@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 
 
-import { HouseDescription, ServerData } from '../classes';
+import { HouseDescription} from '../classes';
 import { Observable } from 'rxjs';
 
 
@@ -13,5 +13,5 @@ import { Observable } from 'rxjs';
   providers: []
 })
 export class OutputComponent {
-  @Input() public dataFromServer$: Observable<ServerData>;
+  @Input() public dataFromServer$: Observable<HouseDescription[]>;
 }

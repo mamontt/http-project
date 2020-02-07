@@ -1,6 +1,5 @@
 import { Component, OnInit, Input} from '@angular/core';
 import { HouseDescription } from '../classes';
-// import { UpperPipe } from "../upper.pipe";
 
 @Component({
   selector: 'app-house',
