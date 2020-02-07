@@ -39,7 +39,7 @@ export class FilterComponent implements OnInit {
 
   ngOnInit(): void {
     this.inputParams();
-    this.sendUrlToApp();
+    this.sendParamsToApp();
   }
 
   private inputParam(key: string, value: string) {
@@ -64,12 +64,9 @@ export class FilterComponent implements OnInit {
   }
 
 
-  private buildUrl(): string {
-    return this.params.build();
-  }
 
-  private sendUrlToApp(): void {
-    this.Form.emit(this.buildUrl());
+  private sendParamsToApp(): void {
+    this.Form.emit(this.params);
   }
 
 }

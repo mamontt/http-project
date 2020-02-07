@@ -22,16 +22,25 @@ export class HouseDescription {
 
 }
 export class Params {
-
-    private country = '';
-    private urlToSent = '';
-    private location = '';
-    private minPrice = '';
-    private maxPrice =  '';
-    private listingType = '';
-    private bathrooNumber = '';
-    private bedroomNumber = '';
-    private constructionYear = '';
+    private country: string;
+    private urlToSent = `/api?encoding=json&pretty=1&action=search_listings&listing_type=buy`;
+    private location: string;
+    private minPrice: string;
+    private maxPrice: string;
+    private listingType: string;
+    private bathrooNumber: string;
+    private bedroomNumber: string;
+    private constructionYear: string;
+    constructor() {
+    this.country = 'UK';
+    this.location = '';
+    this.minPrice = '';
+    this.maxPrice =  '';
+    this.listingType = '';
+    this.bathrooNumber = '';
+    this.bedroomNumber = '';
+    this.constructionYear = '';
+    }
 
     public applyCountry(countryName: string): string {
         this.country = countryUrl[countryName];
@@ -44,7 +53,6 @@ export class Params {
 
 
     public build(): string {
-        this.urlToSent = `/api?encoding=json&pretty=1&action=search_listings&listing_type=buy`;
 
         this.urlToSent = (this.country ? this.country : 'https://api.nestoria.co.uk') + this.urlToSent;
         for (const key in this) {

@@ -14,6 +14,13 @@ import { HouseComponent } from './house/house.component';
 import { FilterComponent } from './filter/filter.component';
 import { UpperPipe } from './pipes/upper.pipe';
 import { RentPipe } from './pipes/rent.pipe';
+import { StoreModule } from '@ngrx/store';
+import { reducers, metaReducers } from './reducers';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
+import { EffectsModule } from '@ngrx/effects';
+import { AppEffects } from './app.effects';
+import { StoreRouterConnectingModule } from '@ngrx/router-store';
 
 
 @NgModule({
@@ -30,7 +37,17 @@ import { RentPipe } from './pipes/rent.pipe';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    StoreModule.forRoot(reducers, {
+      metaReducers,
+      runtimeChecks: {
+        strictStateImmutability: true,
+        strictActionImmutability: true
+      }
+    }),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
+    EffectsModule.forRoot([AppEffects]),
+    StoreRouterConnectingModule.forRoot()
     // FormGroup,
     // FormControl,
     // Validators
